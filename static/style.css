@@ -6,9 +6,6 @@ header nav .btnLog {
     display: block;
   }
 }
-header nav .login-icon-col {
-  display: none;
-}
 @media (min-width: 1200px) {
   header nav .login-icon-dropdown {
     display: none;

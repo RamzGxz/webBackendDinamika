@@ -58,12 +58,12 @@
                         </li>
                         <li><a class="dropdown-item" href="#">View Recap All Data</a></li>
                       </ul>
-                      <li class="nav-item" onclick="login()">
-                        <a class="nav-link" href="#">
+                      <li class="nav-item">
+                        <a class="nav-link" href="{{url_for('logout')}}">
                             <div class="login-icon-dropdown">
                               <button class="btn w-auto h-75 btn-outline-success  border-0 rounded-2 pe-2 ps-2 pt-1 pb-1 fs-5 text-uppercase fw-bold">
                                 <i class="fa-solid fa-right-to-bracket"></i>
-                                Login
+                                Logout
                               </button>
                           </div>
                         </a>
@@ -72,11 +72,13 @@
                   </ul>
                 </div>
               </div>
-              <div class="login-icon-col ms-3" onclick="login()">
-                <button class="btn w-100 h-75 btn-outline-success  border-0 rounded-2 pe-2 ps-2 pt-1 pb-1 fs-5 text-uppercase fw-bold">
-                  <i class="fa-solid fa-right-to-bracket"></i>
-                  Login
-                </button>
+              <div class="login-icon-col ms-3">
+                <a href="{{url_for('logout')}}">
+                  <button class="btn w-100 h-75 btn-outline-success  border-0 rounded-2 pe-2 ps-2 pt-1 pb-1 fs-5 text-uppercase fw-bold">
+                    <i class="fa-solid fa-right-to-bracket"></i>
+                    logout
+                  </button>
+                </a>
               </div>
             </div>
           </div>
@@ -165,7 +167,7 @@
               </table>
               <div class="buttonFormStock">
                   <button class="btn btn-success btn-lg" type="submit">SUBMIT!</button>
-              </div>
+              </div> 
             </form>
           </div>
         </div>
@@ -218,29 +220,7 @@
           </div>
         </div>
       </section>
-      <!-- loginForm -->
-      <section class="loginForm d-flex justify-content-center align-items-center position-fixed" id="logWrap">
-        <div class="container d-flex justify-content-center bg-dark rounded shadow flex-column align-items-center logWrap" >
-          <img class="" src="images/iconDinamika.png" alt="" width="150" height="100">
-          <form class="w-75">
-            <h1 class="h3 fw-normal text-white mt-4 mb-4 text-center">Please sign in</h1>
-        
-            <div class="form-floating mb-3 w-75 m-auto">
-              <input type="text" class="form-control" id="floatingInput" placeholder="enter a Username">
-              <label for="floatingInput">Username</label>
-            </div>
-            <div class="form-floating mb-3 w-75 m-auto">
-              <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-              <label for="floatingPassword">Password</label>
-            </div>
-            <div class="text-center">
-              <button class="btn btn-lg btn-danger w-auto fs-3 text-uppercase" type="submit">Sign in</button>
-            </div>
-            <p class="mt-5 text-muted text-center">&copy; 2017-2022</p>
-          </form>
-          <button class="btn bg-danger btn-close closeBtn" id="close"></button>
-        </div>
-      </section>
+
     <!-- loginFormEnd -->
       <div class="container">
         <footer class="py-3 my-4">
