@@ -46,8 +46,7 @@ def stock():
     return render_template('stock.html', data=result)
     
 
-
-
+app.run('localhost', 5555)
 
 
 
