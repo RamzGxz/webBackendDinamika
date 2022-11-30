@@ -9,7 +9,7 @@ app = Flask(__name__)
 def index():
     token = request.cookies.get('token')
     if(token):
-        return redirect('/stock')
+        return redirect(render_template('index-login.html'))
 
     if(request.method == 'POST'):
         data = request.form
@@ -45,32 +45,31 @@ def stock():
     result = getStok(conn,cursor)
     return render_template('stock.html', data=result)
     
+@app.route('/recap')
+def recap():
+    return render_template('recap.html')
 
-app.run('localhost', 5555)
 
 
 
-# @app.route('/recap')
-# def recap():
-#     return render_template('recap.html')
 
 # @app.route('/t', methods = ['GET', 'POST'])
 # def tambah():
-#     # if request.method == 'POST':
-#     #     details = request.form
-#     #     kodeBrg = details['kodeBrg']
-#     #     namaBrg = details['namaBrg']
-#     #     hargaBrg = details['hargaBrg']
-#     #     jumlahBrg = details['jumlahBrg']
-#     #     openDb()
-#     #     sql = 'insert into stock(kodeBrg, namaBrg, hargaBrg, jumlahBrg) values(%s,%s,%s,%s)'
-#     #     val = (kodeBrg,namaBrg,hargaBrg,jumlahBrg)
-#     #     cursor.execute(sql, val)
-#     #     conn.commit()
-#     #     closeDb()
-#     #     return(redirect(url_for('stock')))
-#     # else:
-#     return render_template('stock.html',data=[])
+#     if request.method == 'POST':
+#         details = request.form
+#         kodeBrg = details['kodeBrg']
+#         namaBrg = details['namaBrg']
+#         hargaBrg = details['hargaBrg']
+#         jumlahBrg = details['jumlahBrg']
+#         openDb()
+#         sql = 'insert into stock(kodeBrg, namaBrg, hargaBrg, jumlahBrg) values(%s,%s,%s,%s)'
+#         val = (kodeBrg,namaBrg,hargaBrg,jumlahBrg)
+#         cursor.execute(sql, val)
+#         conn.commit()
+#         closeDb()
+#         return(redirect(url_for('stock')))
+#     else:
+#         return render_template('stock.html',data=[])
 
 # @app.route('/editStockBrg/<id>', methods = ['GET', 'POST'])
 # def editStockBrg(id):
@@ -94,3 +93,4 @@ app.run('localhost', 5555)
 #         closeDb()
 #         return redirect(url_for('stock', data = data))
 
+app.run('localhost', 5555, debug=True)

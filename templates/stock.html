@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,226 +14,228 @@
     <script src="https://kit.fontawesome.com/9f19fe83e1.js" crossorigin="anonymous"></script>
     <script src="{{url_for('static', filename = 'main.js')}}"></script>
 </head>
+
 <body>
     <header id="home">
         <nav class="navbar navbar-dark bg-dark fixed-top" aria-label="Dark offcanvas navbar">
-          <div class="container-fluid d-flex justify-content-between">
-            <div>
-              <a class="navbar-brand fs-3" href="index.html">Dinamika WebApp</a>
-            </div>
-            <div class="btnLog d-flex justify-content-between">
-              <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbarDark" aria-controls="offcanvasNavbarDark">
+            <div class="container-fluid d-flex justify-content-between">
+                <div>
+                    <a class="navbar-brand fs-3" href="/">Dinamika WebApp</a>
+                </div>
+                <div class="btnLog d-flex justify-content-between">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbarDark" aria-controls="offcanvasNavbarDark">
                 <span class="navbar-toggler-icon"></span>
               </button>
-              <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasNavbarDark" aria-labelledby="offcanvasNavbarDarkLabel">
-                <div class="offcanvas-header">
-                  <h5 class="offcanvas-title" id="offcanvasNavbarDarkLabel">Dinamika WebApp</h5>
-                  <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                </div>
-                <div class="offcanvas-body">
-                  <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                    <li class="nav-item">
-                      <a class="nav-link" aria-current="page" href="/#home">Home</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="/#contact">Contact</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="/#jasa">Service</a>
-                    </li>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link active" href="/stock">Stock</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                      <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasNavbarDark" aria-labelledby="offcanvasNavbarDarkLabel">
+                        <div class="offcanvas-header">
+                            <h5 class="offcanvas-title" id="offcanvasNavbarDarkLabel">Dinamika WebApp</h5>
+                            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                        </div>
+                        <div class="offcanvas-body">
+                            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                                <li class="nav-item">
+                                    <a class="nav-link" aria-current="page" href="/">Home</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/#contact">Contact</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/#jasa">Service</a>
+                                </li>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="/stock">Stock</a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Recap Data
                       </a>
-                      <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="/recap">Recap Data Harian</a></li>
-                        <li><a class="dropdown-item" href="/recap#minggu">Recap Data Mingguan</a></li>
-                        <li><a class="dropdown-item" href="/recap#bulan">Recap Data Bulanan</a></li>
-                        <li><a class="dropdown-item" href="/recap#tahun">Recap Data Tahunan</a></li>
-                        <li>
-                          <hr class="dropdown-divider">
-                        </li>
-                        <li><a class="dropdown-item" href="#">View Recap All Data</a></li>
-                      </ul>
-                      <li class="nav-item">
-                        <a class="nav-link" href="{{url_for('logout')}}">
-                            <div class="login-icon-dropdown">
-                              <button class="btn w-auto h-75 btn-outline-success  border-0 rounded-2 pe-2 ps-2 pt-1 pb-1 fs-5 text-uppercase fw-bold">
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="/recap">Recap Data Harian</a></li>
+                                        <li><a class="dropdown-item" href="/recap#minggu">Recap Data Mingguan</a></li>
+                                        <li><a class="dropdown-item" href="/recap#bulan">Recap Data Bulanan</a></li>
+                                        <li><a class="dropdown-item" href="/recap#tahun">Recap Data Tahunan</a></li>
+                                        <li>
+                                            <hr class="dropdown-divider">
+                                        </li>
+                                        <li><a class="dropdown-item" href="#">View Recap All Data</a></li>
+                                    </ul>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{{url_for('logout')}}">
+                                            <div class="login-icon-dropdown">
+                                                <button class="btn w-auto h-75 btn-outline-success  border-0 rounded-2 pe-2 ps-2 pt-1 pb-1 fs-5 text-uppercase fw-bold">
                                 <i class="fa-solid fa-right-to-bracket"></i>
                                 Logout
                               </button>
-                          </div>
-                        </a>
-                      </li>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-              <div class="login-icon-col ms-3">
-                <a href="{{url_for('logout')}}">
-                  <button class="btn w-100 h-75 btn-outline-success  border-0 rounded-2 pe-2 ps-2 pt-1 pb-1 fs-5 text-uppercase fw-bold">
+                                            </div>
+                                        </a>
+                                    </li>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="login-icon-col ms-3">
+                        <a href="{{url_for('logout')}}">
+                            <button class="btn w-100 h-75 btn-outline-success  border-0 rounded-2 pe-2 ps-2 pt-1 pb-1 fs-5 text-uppercase fw-bold">
                     <i class="fa-solid fa-right-to-bracket"></i>
                     logout
                   </button>
-                </a>
-              </div>
+                        </a>
+                    </div>
+                </div>
             </div>
-          </div>
         </nav>
-      </header>
+    </header>
 
-      <section>
+    <section>
         <div class="container margin-form">
 
-          <div class="title  mb-lg-5 mb-md-5">
-              <h1 class="card-title">Stock Barang</h1>
-          </div>
-          
-          <div class="scrollAble table-responsive">
-              <table class="table table-hover text-center">
-                <thead class="sticky-top text-bg-dark">
-                  <tr>
-                    <th scope="col">No</th>
-                    <th scope="col">Kode Barang</th>
-                    <th scope="col">Nama Barang</th>
-                    <th scope="col">Harga Barang</th>
-                    <th scope="col">Jumlah Barang</th>
-                    <th scope="col">Tanggal</th>
-                    <th scope="col">Actions</th>
-                  </tr>
-                </thead>
-              <tbody>
-                {% for row in data %}
-                <tr>
-                  <th scope="row">{{row[0]}}</th>
-                  <td>{{row[1]}}</td>
-                  <td>{{row[2]}}</td>
-                  <td>Rp. {{row[3]}}</td>
-                  <td>{{row[4]}}</td>
-                  <td>{{row[5]}}</td>
-                  <td>
-                    <a href="/editStockBrg/{{row[0]}}">
-                      <button class="btn btn-success btn-sm">Edit </button>
-                    </a>
-                    <a href="/delStockBrg/{{row[0]}}">
-                      <button class="btn btn-danger btn-sm">Delete</button>
-                    </a>
-                  </td>
-                </tr>
-                {% endfor %}
-              </tbody>
+            <div class="title  mb-lg-5 mb-md-5">
+                <h1 class="card-title">Stock Barang</h1>
             </div>
-          </table>
-        </div>
-      </section>
-      
-      <section class="formInputStock" id="inputStock">
-        <div class="container">
-          <div class="col-sm5">
-            <h1>Input Stock Barang</h1>
-            <form action="/tambahstock" method="post" class="mt-sm-5">
-              <table class="table table-borderless">
-                <tr>
-                  <td>Kode Barang</td>
-                  <td>:</td>
-                  <td>
-                    <input type="text" class="form-control" name="kodeBrg">
-                  </td>
-                </tr>
-                <tr>
-                  <td>Nama Barang</td>
-                  <td>:</td>
-                  <td>
-                    <input type="text" class="form-control" name="namaBrg">
-                  </td>
-                </tr>
-                <tr>
-                  <td>Harga Barang</td>
-                  <td>:</td>
-                  <td>
-                    <input type="text" class="form-control" name="hargaBrg">
-                  </td>
-                </tr>
-                <tr>
-                  <td>Jumlah Barang</td>
-                  <td>:</td>
-                  <td>
-                    <input type="text" class="form-control" name="jumlahBrg">
-                  </td>
-                </tr>
-              </table>
-              <div class="buttonFormStock">
-                  <button class="btn btn-success btn-lg" type="submit">SUBMIT!</button>
-              </div> 
-            </form>
-          </div>
-        </div>
-      </section>
 
-      <section class="formInputStock" id="editStock">
-        <div class="container">
-          <div class="col-sm5">
-            <h1>Edit Stock Barang</h1>
-            <form action="url_for('editStockBrg', id={{data[0]}})" method="post" class="mt-sm-5">
-              <table class="table table-borderless">
-                <tr>
-                  <td>
-                    <input type="hidden" name="id" class="form-control" value="{{data[0]}}" required>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Kode Barang</td>
-                  <td>:</td>
-                  <td>
-                    <input type="text" class="form-control" name="kodeBrg" value="{{data[1]}}" required>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Nama Barang</td>
-                  <td>:</td>
-                  <td>
-                    <input type="text" class="form-control" name="namaBrg" value="{{data[2]}}" required>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Harga Barang</td>
-                  <td>:</td>
-                  <td>
-                    <input type="text" class="form-control"name="hargaBrg" value="{{data[3]}}" required>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Jumlah Barang</td>
-                  <td>:</td>
-                  <td>
-                    <input type="text" class="form-control" name="jumlahBrg" value="{{data[4]}}" required>
-                  </td>
-                </tr>
-              </table>
-              <div class="buttonFormStock">
-                <button class="btn btn-success btn-lg" type="submit">SUBMIT!</button>
-              </div>
-            </form>
-          </div>
+            <div class="scrollAble table-responsive">
+                <table class="table table-hover text-center">
+                    <thead class="sticky-top text-bg-dark">
+                        <tr>
+                            <th scope="col">No</th>
+                            <th scope="col">Kode Barang</th>
+                            <th scope="col">Nama Barang</th>
+                            <th scope="col">Harga Barang</th>
+                            <th scope="col">Jumlah Barang</th>
+                            <th scope="col">Tanggal</th>
+                            <th scope="col">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for row in data %}
+                        <tr>
+                            <th scope="row">{{row[0]}}</th>
+                            <td>{{row[1]}}</td>
+                            <td>{{row[2]}}</td>
+                            <td>Rp. {{row[3]}}</td>
+                            <td>{{row[4]}}</td>
+                            <td>{{row[5]}}</td>
+                            <td>
+                                <a href="/editStockBrg/{{row[0]}}">
+                                    <button class="btn btn-success btn-sm">Edit </button>
+                                </a>
+                                <a href="/delStockBrg/{{row[0]}}">
+                                    <button class="btn btn-danger btn-sm">Delete</button>
+                                </a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+            </div>
+            </table>
         </div>
-      </section>
+    </section>
+
+    <section class="formInputStock" id="inputStock">
+        <div class="container">
+            <div class="col-sm5">
+                <h1>Input Stock Barang</h1>
+                <form action="/tambahstock" method="post" class="mt-sm-5">
+                    <table class="table table-borderless">
+                        <tr>
+                            <td>Kode Barang</td>
+                            <td>:</td>
+                            <td>
+                                <input type="text" class="form-control" name="kodeBrg">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Nama Barang</td>
+                            <td>:</td>
+                            <td>
+                                <input type="text" class="form-control" name="namaBrg">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Harga Barang</td>
+                            <td>:</td>
+                            <td>
+                                <input type="text" class="form-control" name="hargaBrg">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Jumlah Barang</td>
+                            <td>:</td>
+                            <td>
+                                <input type="text" class="form-control" name="jumlahBrg">
+                            </td>
+                        </tr>
+                    </table>
+                    <div class="buttonFormStock">
+                        <button class="btn btn-success btn-lg" type="submit">SUBMIT!</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section class="formInputStock" id="editStock">
+        <div class="container">
+            <div class="col-sm5">
+                <h1>Edit Stock Barang</h1>
+                <form action="url_for('editStockBrg', id={{data[0]}})" method="post" class="mt-sm-5">
+                    <table class="table table-borderless">
+                        <tr>
+                            <td>
+                                <input type="hidden" name="id" class="form-control" value="{{data[0]}}" required>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Kode Barang</td>
+                            <td>:</td>
+                            <td>
+                                <input type="text" class="form-control" name="kodeBrg" value="{{data[1]}}" required>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Nama Barang</td>
+                            <td>:</td>
+                            <td>
+                                <input type="text" class="form-control" name="namaBrg" value="{{data[2]}}" required>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Harga Barang</td>
+                            <td>:</td>
+                            <td>
+                                <input type="text" class="form-control" name="hargaBrg" value="{{data[3]}}" required>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Jumlah Barang</td>
+                            <td>:</td>
+                            <td>
+                                <input type="text" class="form-control" name="jumlahBrg" value="{{data[4]}}" required>
+                            </td>
+                        </tr>
+                    </table>
+                    <div class="buttonFormStock">
+                        <button class="btn btn-success btn-lg" type="submit">SUBMIT!</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
 
     <!-- loginFormEnd -->
-      <div class="container">
+    <div class="container">
         <footer class="py-3 my-4">
-          <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-            <li class="nav-item"><a href="/" class="nav-link px-2 text-muted">Home</a></li>
-            <li class="nav-item"><a href="/#jasa" class="nav-link px-2 text-muted">Services</a></li>
-            <li class="nav-item"><a href="/#contact" class="nav-link px-2 text-muted">Contact</a></li>
-            <li class="nav-item"><a href="/stock" class="nav-link px-2 text-muted">Stock</a></li>
-            <li class="nav-item"><a href="/recap" class="nav-link px-2 text-muted">Recap</a></li>
-          </ul>
-          <p class="text-center text-muted">&copy; 2022 Dinamika Digital Printing</p>
+            <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+                <li class="nav-item"><a href="/" class="nav-link px-2 text-muted">Home</a></li>
+                <li class="nav-item"><a href="/#jasa" class="nav-link px-2 text-muted">Services</a></li>
+                <li class="nav-item"><a href="/#contact" class="nav-link px-2 text-muted">Contact</a></li>
+                <li class="nav-item"><a href="/stock" class="nav-link px-2 text-muted">Stock</a></li>
+                <li class="nav-item"><a href="/recap" class="nav-link px-2 text-muted">Recap</a></li>
+            </ul>
+            <p class="text-center text-muted">&copy; 2022 Dinamika Digital Printing</p>
         </footer>
-      </div>
+    </div>
 </body>
+
 </html>

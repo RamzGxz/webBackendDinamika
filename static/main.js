@@ -1,13 +1,13 @@
-const login = () =>{
+const login = () => {
     const btn = document.getElementById("logWrap")
     const close = document.getElementById("close")
     btn.style.top = "50%"
-    btn.addEventListener("wheel", function(e){
+    btn.addEventListener("wheel", function(e) {
         e.preventDefault()
         e.stopPropagation()
         return false
     })
-    close.addEventListener("click", function(){
+    close.addEventListener("click", function() {
         btn.style.top = "-50%"
     })
 }
@@ -28,9 +28,9 @@ const detailPopup = () => {
     const closeBtn = document.getElementById("closePopDetailBtn")
     pop.style.visibility = "visible"
     pop.style.top = "50%"
-    
+
     // function (view)
-    const view = (titleText, imgSrc1, imgSrc2, imgSrc3, pText1, pText2, pText3) =>{
+    const view = (titleText, imgSrc1, imgSrc2, imgSrc3, pText1, pText2, pText3) => {
         // pop.style.visibility = "visible"
         // pop.style.top = "50%"
         title.innerHTML = titleText
@@ -41,14 +41,19 @@ const detailPopup = () => {
         p2.innerHTML = pText2
         p3.innerHTML = pText3
     }
-    
+
     // printBtn.addEventListener("click", view("Jasa Printing"))
-    
-    closeBtn.addEventListener("click", function(){
+
+    closeBtn.addEventListener("click", function() {
         pop.style.top = "-50%"
         pop.style.visibility = "hidden"
-        // setTimeout(function(){
-        //     location.reload()
-        // }, 1000)
+            // setTimeout(function(){
+            //     location.reload()
+            // }, 1000)
     })
+}
+
+
+const loginSuccesPop = () => {
+
 }
