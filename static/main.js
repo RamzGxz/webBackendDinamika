@@ -53,7 +53,6 @@ const detailPopup = () => {
     })
 }
 
-
-const loginSuccesPop = () => {
-
+const stockEdit = () => {
+    location.href = "#editStock"
 }
