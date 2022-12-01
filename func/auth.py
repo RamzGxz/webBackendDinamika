@@ -20,7 +20,7 @@ def authentication(user,password):
     token = jwt.encode({'id' : user[0][0],'exp':  datetime.datetime.utcnow() + datetime.timedelta(days=1)},secret_key,algorithm='HS256')
 
     resp = make_response(redirect('/'))
-    resp.set_cookie('token',token,max_age=60*60*24,secure=True)
+    resp.set_cookie('token',token,max_age=60*60*24,secure=True,httponly=True)
     return resp
 
 

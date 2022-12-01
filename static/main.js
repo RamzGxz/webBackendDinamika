@@ -53,6 +53,21 @@ const detailPopup = () => {
     })
 }
 
-const stockEdit = () => {
-    location.href = "#editStock"
-}
+
+document.addEventListener('click',function(e){
+
+    if(e.target.classList.contains('edit-stock')){
+        location.href = "#editStock"
+        const td = e.target.parentElement
+        const jumlah = td.previousElementSibling.previousElementSibling
+        const harga = jumlah.previousElementSibling
+        const nama = harga.previousElementSibling
+        const kode = nama.previousElementSibling
+
+        const formEdit = document.getElementById('form-edit')
+        formEdit.querySelector('#kode').value = kode.textContent
+        formEdit.querySelector('#nama').value = nama.textContent
+        formEdit.querySelector('#harga').value = harga.textContent
+        formEdit.querySelector('#jumlah').value = jumlah.textContent
+    }
+})

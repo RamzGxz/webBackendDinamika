@@ -22,3 +22,4 @@ def getStok(conn,cursor):
     conn.close()
 
     return result
+

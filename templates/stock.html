@@ -117,9 +117,7 @@
                             <td>{{row[4]}}</td>
                             <td>{{row[5]}}</td>
                             <td>
-                                <a href="/editStockBrg/{{row[0]}}" onclick="stockEdit()">
-                                    <button class="btn btn-success btn-sm">Edit </button>
-                                </a>
+                                <button class="btn btn-success btn-sm edit-stock">Edit </button>
                                 <a href="/delStockBrg/{{row[0]}}">
                                     <button class="btn btn-danger btn-sm">Delete</button>
                                 </a>
@@ -136,34 +134,34 @@
         <div class="container">
             <div class="col-sm5">
                 <h1>Input Stock Barang</h1>
-                <form action="/tambahstock" method="post" class="mt-sm-5">
+                <form action="/stock" method="post" class="mt-sm-5">
                     <table class="table table-borderless">
                         <tr>
                             <td>Kode Barang</td>
                             <td>:</td>
                             <td>
-                                <input type="text" class="form-control" name="kodeBrg">
+                                <input type="text" class="form-control" name="kodeBrg" required>
                             </td>
                         </tr>
                         <tr>
                             <td>Nama Barang</td>
                             <td>:</td>
                             <td>
-                                <input type="text" class="form-control" name="namaBrg">
+                                <input type="text" class="form-control" name="namaBrg" required>
                             </td>
                         </tr>
                         <tr>
                             <td>Harga Barang</td>
                             <td>:</td>
                             <td>
-                                <input type="text" class="form-control" name="hargaBrg">
+                                <input type="text" class="form-control" name="hargaBrg" required>
                             </td>
                         </tr>
                         <tr>
                             <td>Jumlah Barang</td>
                             <td>:</td>
                             <td>
-                                <input type="text" class="form-control" name="jumlahBrg">
+                                <input type="text" class="form-control" name="jumlahBrg" required>
                             </td>
                         </tr>
                     </table>
@@ -179,39 +177,39 @@
         <div class="container">
             <div class="col-sm5">
                 <h1>Edit Stock Barang</h1>
-                <form action="url_for('editStockBrg', id={{data[0]}})" method="post" class="mt-sm-5">
+                <form action="url_for('editStockBrg', id={{data[0]}})" method="post" class="mt-sm-5" id="form-edit">
                     <table class="table table-borderless">
                         <tr>
                             <td>
-                                <input type="hidden" name="id" class="form-control" value="{{data[0]}}" required>
+                                <input type="hidden" name="id" class="form-control" required>
                             </td>
                         </tr>
                         <tr>
                             <td>Kode Barang</td>
                             <td>:</td>
                             <td>
-                                <input type="text" class="form-control" name="kodeBrg" value="{{data[1]}}" required>
+                                <input type="text" class="form-control" id="kode" name="kodeBrg" required>
                             </td>
                         </tr>
                         <tr>
                             <td>Nama Barang</td>
                             <td>:</td>
                             <td>
-                                <input type="text" class="form-control" name="namaBrg" value="{{data[2]}}" required>
+                                <input type="text" class="form-control" id="nama" name="namaBrg" required>
                             </td>
                         </tr>
                         <tr>
                             <td>Harga Barang</td>
                             <td>:</td>
                             <td>
-                                <input type="text" class="form-control" name="hargaBrg" value="{{data[3]}}" required>
+                                <input type="text" class="form-control" id="harga" name="hargaBrg" required>
                             </td>
                         </tr>
                         <tr>
                             <td>Jumlah Barang</td>
                             <td>:</td>
                             <td>
-                                <input type="text" class="form-control" name="jumlahBrg" value="{{data[4]}}" required>
+                                <input type="text" class="form-control" id="jumlah" name="jumlahBrg" value="{{data[4]}}" required>
                             </td>
                         </tr>
                     </table>
