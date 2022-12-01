@@ -6,9 +6,9 @@ app = Flask(__name__)
 
 @app.route('/',methods = ['GET','POST'])
 def index():
-    token = request.cookies.get('token')
-    if(token):
-        return redirect(render_template('index.html'))
+    logout = False
+    if(request.cookies.get('token')):
+        logout = True
 
     if(request.method == 'POST'):
         data = request.form
@@ -20,7 +20,7 @@ def index():
 
         # check user, create token,set cookie and redirect stock
         return authentication(user,password)
-    return render_template('index.html')
+    return render_template('index.html',logout=logout)
 
     
 @app.route('/logout',methods=['GET'])
