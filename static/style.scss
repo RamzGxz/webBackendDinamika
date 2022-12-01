@@ -3,9 +3,20 @@ header{
         .btnLog{
             align-items: center;
         }
+        .login-icon-dropdown{
+            display: none;
+        }
         @media (min-width: 576px) {
             .login-icon-dropdown{
+                display: none;
+            }
+        }
+        @media (max-width: 576px) {
+            .login-icon-dropdown{
                 display: block;
+            }
+            .login-icon-col{
+                display: none;
             }
         }
         @media (min-width: 1200px){  

@@ -1,7 +1,7 @@
 import pymysql
 
 def openDb():
-    conn = pymysql.connect(host ='127.0.0.1', user ='root', passwd = 'ramzi', database ='dinamikaDatabase')
+    conn = pymysql.connect(host ='127.0.0.1', user ='root', passwd = '', database ='ramzi_rekap')
     cursor = conn.cursor()
     return conn,cursor
 

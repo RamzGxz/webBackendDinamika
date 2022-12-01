@@ -8,7 +8,7 @@ app = Flask(__name__)
 def index():
     token = request.cookies.get('token')
     if(token):
-        return redirect(render_template('index-login.html'))
+        return redirect(render_template('index.html'))
 
     if(request.method == 'POST'):
         data = request.form
