@@ -21,7 +21,7 @@ def authentication(user,password):
 
 
 
-    resp = make_response(redirect('/stock'))
+    resp = make_response(redirect(render_template('index.html')))
     resp.set_cookie('token',token,max_age=60*60*24,secure=True)
     return resp
 

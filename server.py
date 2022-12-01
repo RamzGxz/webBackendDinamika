@@ -2,7 +2,6 @@ from flask import Flask, render_template, request, url_for,redirect,make_respons
 from func.mysql import *
 from func.auth import *
 
-
 app = Flask(__name__)
 
 @app.route('/',methods = ['GET','POST'])
@@ -93,4 +92,5 @@ def recap():
 #         closeDb()
 #         return redirect(url_for('stock', data = data))
 
-app.run('localhost', 5555, debug=True)
+if __name__ == '__main__':
+    app.run('127.0.0.1', 3333)
