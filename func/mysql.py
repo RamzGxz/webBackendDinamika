@@ -1,7 +1,7 @@
 import pymysql
 
 def openDb():
-    conn = pymysql.connect(host ='127.0.0.1', user ='root', passwd = '', database ='ramzi_rekap')
+    conn = pymysql.connect(host ='127.0.0.1', user ='root', passwd = 'ramzi', database ='dinamikaDatabase')
     cursor = conn.cursor()
     return conn,cursor
 
@@ -20,6 +20,4 @@ def getStok(conn,cursor):
     result = cursor.fetchall()
     cursor.close()
     conn.close()
-
     return result
-

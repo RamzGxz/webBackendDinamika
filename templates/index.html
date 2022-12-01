@@ -24,16 +24,13 @@
                     <a class="navbar-brand fs-3" href="/">Dinamika WebApp</a>
                 </div>
                 <div class="btnLog d-flex justify-content-between">
-                    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
-                        data-bs-target="#offcanvasNavbarDark" aria-controls="offcanvasNavbarDark">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbarDark" aria-controls="offcanvasNavbarDark">
                         <span class="navbar-toggler-icon"></span>
                     </button>
-                    <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasNavbarDark"
-                        aria-labelledby="offcanvasNavbarDarkLabel">
+                    <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasNavbarDark" aria-labelledby="offcanvasNavbarDarkLabel">
                         <div class="offcanvas-header">
                             <h5 class="offcanvas-title" id="offcanvasNavbarDarkLabel">Dinamika WebApp</h5>
-                            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
-                                aria-label="Close"></button>
+                            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                         </div>
                         <div class="offcanvas-body">
                             <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
@@ -51,8 +48,7 @@
                                     <a class="nav-link" href="{{url_for('stock')}}">Stock</a>
                                 </li>
                                 <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                                        aria-expanded="false">
+                                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                         Recap Data
                                     </a>
                                     <ul class="dropdown-menu">
@@ -66,17 +62,16 @@
                                         </li>
                                         <li><a class="dropdown-item" href="#">View Recap All Data</a></li>
                                     </ul>
-                                <li class="nav-item" onclick="login()">
-                                    <a class="nav-link" href="">
-                                        <div class="login-icon-dropdown" id="lgnBtn">
-                                            <button
-                                                class="btn w-auto h-75 btn-outline-success  border-0 rounded-2 pe-2 ps-2 pt-1 pb-1 fs-5 text-uppercase fw-bold">
+                                    <li class="nav-item" onclick="login()">
+                                        <a class="nav-link" href="">
+                                            <div class="login-icon-dropdown" id="lgnBtn">
+                                                <button class="btn w-auto h-75 btn-outline-success  border-0 rounded-2 pe-2 ps-2 pt-1 pb-1 fs-5 text-uppercase fw-bold">
                                                 <i class="fa-solid fa-right-to-bracket"></i>
                                                 Login
                                             </button>
-                                        </div>
-                                    </a>
-                                </li>
+                                            </div>
+                                        </a>
+                                    </li>
                                 </li>
                             </ul>
                         </div>
@@ -84,20 +79,20 @@
 
                     {% if logout: %}
                     <div class="login-icon-col ms-3">
-                        <button
-                            class="btn w-100 h-75 btn-outline-success  border-0 rounded-2 pe-2 ps-2 pt-1 pb-1 fs-5 text-uppercase fw-bold">
-                            <i class="fa-solid fa-right-to-bracket"></i>
-                            <a href="{{url_for('logout')}}" class="text-white text-decoration-none">Logout</a>
-                        </button>
+                        <a href="{{url_for('logout')}}" class="text-decoration-none">
+                            <button class="btn w-100 h-75 btn-outline-success  border-0 rounded-2 pe-2 ps-2 pt-1 pb-1 fs-5 text-uppercase fw-bold">
+                                <i class="fa-solid fa-right-to-bracket"></i>
+                                Logout
+                            </button>
+                        </a>
                     </div>
                     {% else: %}
-                        <div class="login-icon-col ms-3" onclick="login()">
-                            <button
-                                class="btn w-100 h-75 btn-outline-success  border-0 rounded-2 pe-2 ps-2 pt-1 pb-1 fs-5 text-uppercase fw-bold">
+                    <div class="login-icon-col ms-3" onclick="login()">
+                        <button class="btn w-100 h-75 btn-outline-success  border-0 rounded-2 pe-2 ps-2 pt-1 pb-1 fs-5 text-uppercase fw-bold">
                                 <i class="fa-solid fa-right-to-bracket"></i>
                                 Login
                             </button>
-                        </div>
+                    </div>
                     {% endif %}
                 </div>
             </div>
@@ -110,9 +105,7 @@
                 <div class="col-sm-6">
                     <h1>Dinamika Digital <br> Printing</h1>
                     <p>
-                        Dinamika Digital Printing adalah usaha percetakan yang ada di desa Wringinrejo kecatamatan
-                        Gambiran. Usaha dibidang IT ini sangat diperlukan pada era sekarang. Usaha percetakan ini
-                        menyediakan berbagai macam jasa. Untuk melihat jasa apa yang disediakan
+                        Dinamika Digital Printing adalah usaha percetakan yang ada di desa Wringinrejo kecatamatan Gambiran. Usaha dibidang IT ini sangat diperlukan pada era sekarang. Usaha percetakan ini menyediakan berbagai macam jasa. Untuk melihat jasa apa yang disediakan
                         silahkan klik tombol di bawah!
                     </p>
                     <a href="#jasa">
@@ -142,42 +135,34 @@
     <div class="container margin-card">
         <div class="row">
             <div class="card col-sm-6 p-2 border-0">
-                <img src="{{url_for('static', filename = 'images/jasaKetik.webp')}}" class="card-img-top rounded"
-                    alt="...">
+                <img src="{{url_for('static', filename = 'images/jasaKetik.webp')}}" class="card-img-top rounded" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">Jasa Pengetikan</h5>
-                    <p class="card-text">Di dalam jasa pengetikan, antara lain: jasa pengetikan makalah, jasa pengetikan
-                        skripsi, jasa pengetikan laporan, dan banyak lagi.</p>
+                    <p class="card-text">Di dalam jasa pengetikan, antara lain: jasa pengetikan makalah, jasa pengetikan skripsi, jasa pengetikan laporan, dan banyak lagi.</p>
                     <button class="btn btn-danger" id="ketikBtn" onclick="detailPopup()">Lihat Detail Jasa!</button>
                 </div>
             </div>
             <div class="card col-sm-6 p-2 border-0">
-                <img src="{{url_for('static', filename = 'images/jasaPrint.webp')}}" class="card-img-top rounded"
-                    alt="...">
+                <img src="{{url_for('static', filename = 'images/jasaPrint.webp')}}" class="card-img-top rounded" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">Jasa Printing</h5>
-                    <p class="card-text">Jasa Printing atau juga disebut jasa percetakan, dalam hal ini kami mencetak
-                        berbagai dokumen berskala kecil.</p>
+                    <p class="card-text">Jasa Printing atau juga disebut jasa percetakan, dalam hal ini kami mencetak berbagai dokumen berskala kecil.</p>
                     <button class="btn btn-danger" id="printBtn" onclick="detailPopup()">Lihat Detail Jasa!</button>
                 </div>
             </div>
             <div class="card col-sm-6 p-2 border-0">
-                <img src="{{url_for('static', filename = 'images/jasaFc.webp')}}" class="card-img-top rounded"
-                    alt="...">
+                <img src="{{url_for('static', filename = 'images/jasaFc.webp')}}" class="card-img-top rounded" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">Jasa Fotokopi</h5>
-                    <p class="card-text">Fotokopi adalah mencetak dokumen yang bersifat duplikat atau ganda. Dalam Hal
-                        ini kami menggandakan dokumen.</p>
+                    <p class="card-text">Fotokopi adalah mencetak dokumen yang bersifat duplikat atau ganda. Dalam Hal ini kami menggandakan dokumen.</p>
                     <button class="btn btn-danger" id="fcBtn" onclick="detailPopup()">Lihat Detail Jasa!</button>
                 </div>
             </div>
             <div class="card col-sm-6 p-2 border-0">
-                <img src="{{url_for('static', filename = 'images/jasaBanner.webp')}}" class="card-img-top rounded"
-                    alt="...">
+                <img src="{{url_for('static', filename = 'images/jasaBanner.webp')}}" class="card-img-top rounded" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">Jasa Cetak Banner</h5>
-                    <p class="card-text">Jasa yang satu ini adalah jasa percetakan berskala besar. Percetakan ini
-                        mementingkan ukuran daripada kualitas gambar.</p>
+                    <p class="card-text">Jasa yang satu ini adalah jasa percetakan berskala besar. Percetakan ini mementingkan ukuran daripada kualitas gambar.</p>
                     <button class="btn btn-danger" id="cbBtn" onclick="detailPopup()">Lihat Detail Jasa!</button>
                 </div>
             </div>
@@ -194,25 +179,20 @@
                 <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <img src="{{url_for('static', filename = 'images/1.jpg')}}" class="d-block w-100 rounded"
-                                alt="..." id="imgSlide1">
+                            <img src="{{url_for('static', filename = 'images/1.jpg')}}" class="d-block w-100 rounded" alt="..." id="imgSlide1">
                         </div>
                         <div class="carousel-item">
-                            <img src="{{url_for('static', filename = 'images/2.jpg')}}" class="d-block w-100 rounded"
-                                alt="..." id="imgSlide2">
+                            <img src="{{url_for('static', filename = 'images/2.jpg')}}" class="d-block w-100 rounded" alt="..." id="imgSlide2">
                         </div>
                         <div class="carousel-item">
-                            <img src="{{url_for('static', filename = 'images/3.jpg')}}" class="d-block w-100 rounded"
-                                alt="..." id="imgSlide3">
+                            <img src="{{url_for('static', filename = 'images/3.jpg')}}" class="d-block w-100 rounded" alt="..." id="imgSlide3">
                         </div>
                     </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade"
-                        data-bs-slide="prev">
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                         <span class="visually-hidden">Previous</span>
                     </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade"
-                        data-bs-slide="next">
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
                         <span class="visually-hidden">Next</span>
                     </button>
@@ -222,21 +202,12 @@
 
             <!-- paragraph -->
             <div class="container mt-3 overflow-auto pargrph">
-                <p class="text-indent" id="textP1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio commodi
-                    assumenda voluptas vel, dolor blanditiis in aspernatur sunt, natus doloremque alias ut ratione minus
-                    reprehenderit eligendi rerum magnam minima sed eum corrupti id illo.
-                    Culpa eveniet amet laboriosam explicabo? Distinctio aperiam, atque ullam autem voluptas reiciendis
-                    maiores sapiente ipsum voluptatibus!</p>
-                <p class="text-indent" id="textP2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio commodi
-                    assumenda voluptas vel, dolor blanditiis in aspernatur sunt, natus doloremque alias ut ratione minus
-                    reprehenderit eligendi rerum magnam minima sed eum corrupti id illo.
-                    Culpa eveniet amet laboriosam explicabo? Distinctio aperiam, atque ullam autem voluptas reiciendis
-                    maiores sapiente ipsum voluptatibus!</p>
-                <p class="text-indent" id="textP3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio commodi
-                    assumenda voluptas vel, dolor blanditiis in aspernatur sunt, natus doloremque alias ut ratione minus
-                    reprehenderit eligendi rerum magnam minima sed eum corrupti id illo.
-                    Culpa eveniet amet laboriosam explicabo? Distinctio aperiam, atque ullam autem voluptas reiciendis
-                    maiores sapiente ipsum voluptatibus!</p>
+                <p class="text-indent" id="textP1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio commodi assumenda voluptas vel, dolor blanditiis in aspernatur sunt, natus doloremque alias ut ratione minus reprehenderit eligendi rerum magnam minima sed eum corrupti id illo.
+                    Culpa eveniet amet laboriosam explicabo? Distinctio aperiam, atque ullam autem voluptas reiciendis maiores sapiente ipsum voluptatibus!</p>
+                <p class="text-indent" id="textP2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio commodi assumenda voluptas vel, dolor blanditiis in aspernatur sunt, natus doloremque alias ut ratione minus reprehenderit eligendi rerum magnam minima sed eum corrupti id illo.
+                    Culpa eveniet amet laboriosam explicabo? Distinctio aperiam, atque ullam autem voluptas reiciendis maiores sapiente ipsum voluptatibus!</p>
+                <p class="text-indent" id="textP3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio commodi assumenda voluptas vel, dolor blanditiis in aspernatur sunt, natus doloremque alias ut ratione minus reprehenderit eligendi rerum magnam minima sed eum corrupti id illo.
+                    Culpa eveniet amet laboriosam explicabo? Distinctio aperiam, atque ullam autem voluptas reiciendis maiores sapiente ipsum voluptatibus!</p>
             </div>
             <!-- paragraphEnd -->
             <div class="w-100 d-flex justify-content-center align-items-center py-3">
@@ -269,8 +240,7 @@
                             <img src="{{url_for('static', filename = 'images/1.jpg')}}" alt="" class="rounded-top">
                             <div class="card-body">
                                 <h5>Moch. Ramzi Daffa Putra</h5>
-                                <p class="card-text">This is a wider card with supporting text below as a natural
-                                    lead-in to additional content. This content is a little bit longer.</p>
+                                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                                 <div class="d-flex justify-content-center align-items-center">
                                     <a href="" class="text-dark btn">
                                         <i class="fa-brands fa-facebook fs-3"></i>
@@ -290,8 +260,7 @@
                             <img src="{{url_for('static', filename = 'images/1.jpg')}}" alt="" class="rounded-top">
                             <div class="card-body">
                                 <h5>Moch. Rafael Sebastian</h5>
-                                <p class="card-text">This is a wider card with supporting text below as a natural
-                                    lead-in to additional content. This content is a little bit longer.</p>
+                                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                                 <div class="d-flex justify-content-center align-items-center">
                                     <a href="" class="text-dark btn">
                                         <i class="fa-brands fa-facebook fs-3"></i>
@@ -311,8 +280,7 @@
                             <img src="{{url_for('static', filename = 'images/1.jpg')}}" alt="" class="rounded-top">
                             <div class="card-body">
                                 <h5>Lailatul Mubarokah</h5>
-                                <p class="card-text">This is a wider card with supporting text below as a natural
-                                    lead-in to additional content. This content is a little bit longer.</p>
+                                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                                 <div class="d-flex justify-content-center align-items-center">
                                     <a href="" class="text-dark btn">
                                         <i class="fa-brands fa-facebook fs-3"></i>
@@ -339,8 +307,7 @@
                 <div class="col-sm-6 border-0">
                     <div class="card-body">
                         <h4 class="card-title pb-3">Mismi Marhamah RM, M.Pd</h4>
-                        <p class="card-text">Dalam toko kami, Mismi Marhamah RM, M.Pd adalah sebagai Owner. Mengawasi
-                            pekerjaan dan me-manage toko kami.</p>
+                        <p class="card-text">Dalam toko kami, Mismi Marhamah RM, M.Pd adalah sebagai Owner. Mengawasi pekerjaan dan me-manage toko kami.</p>
                         <div class="d-flex justify-content-start align-items-center pt-3">
                             <a href="" class="text-dark btn">
                                 <i class="fa-brands fa-facebook fs-3"></i>
@@ -386,13 +353,11 @@
                     </div>
                 </div>
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade"
-                data-bs-slide="prev">
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Previous</span>
             </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade"
-                data-bs-slide="next">
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Next</span>
             </button>
@@ -412,10 +377,8 @@
     </section>
 
     <div class="container">
-        <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3947.2294227446805!2d114.17755591486699!3d-8.379080193973303!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd155b1ba0fd13f%3A0xb06a7e96d8b26920!2sUD%20DINAMIKA%20RAYA%20FOTOCOPY!5e0!3m2!1sen!2sid!4v1669108667292!5m2!1sen!2sid"
-            style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-            class="w-100 vh-100 rounded"></iframe>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3947.2294227446805!2d114.17755591486699!3d-8.379080193973303!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd155b1ba0fd13f%3A0xb06a7e96d8b26920!2sUD%20DINAMIKA%20RAYA%20FOTOCOPY!5e0!3m2!1sen!2sid!4v1669108667292!5m2!1sen!2sid"
+            style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="w-100 vh-100 rounded"></iframe>
     </div>
     <!-- contact&mapsEnd -->
 
@@ -423,21 +386,17 @@
 
     <!-- loginForm -->
     <section class="loginForm d-flex justify-content-center align-items-center position-fixed" id="logWrap">
-        <div
-            class="container d-flex justify-content-center bg-dark rounded shadow flex-column align-items-center logWrap">
+        <div class="container d-flex justify-content-center bg-dark rounded shadow flex-column align-items-center logWrap">
             <p class="fs-3 text-white">{{err}}</p>
-            <img class="" src="{{url_for('static', filename='/images/iconDinamika.png')}}" alt="" width="150"
-                height="100">
+            <img class="" src="{{url_for('static', filename='/images/iconDinamika.png')}}" alt="" width="150" height="100">
             <form class="w-75" method="post" action="/">
                 <h1 class="h3 fw-normal text-white mt-4 mb-4 text-center">Please sign in</h1>
                 <div class="form-floating mb-3 w-75 m-auto">
-                    <input type="text" class="form-control" id="floatingInput" placeholder="enter a Username"
-                        name="username" required>
+                    <input type="text" class="form-control" id="floatingInput" placeholder="enter a Username" name="username" required>
                     <label for="floatingInput">Username</label>
                 </div>
                 <div class="form-floating mb-3 w-75 m-auto">
-                    <input type="password" class="form-control" id="floatingPassword" placeholder="Password"
-                        name="password" required>
+                    <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password" required>
                     <label for="floatingPassword">Password</label>
                 </div>
                 <div class="text-center">
@@ -459,7 +418,7 @@
                 <li class="nav-item"><a href="/#home" class="nav-link px-2 text-muted">Home</a></li>
                 <li class="nav-item"><a href="/#jasa" class="nav-link px-2 text-muted">Services</a></li>
                 <li class="nav-item"><a href="/#contact" class="nav-link px-2 text-muted">Contact</a></li>
-                <li class="nav-item"><a href="/stock" class="nav-link px-2 text-muted">Stock</a></li>
+                <li class="nav-item"><a href="{{url_for('stock')}}" class="nav-link px-2 text-muted">Stock</a></li>
                 <li class="nav-item"><a href="/recap" class="nav-link px-2 text-muted">Recap</a></li>
             </ul>
             <p class="text-center text-muted">&copy; 2022 Dinamika Digital Printing</p>

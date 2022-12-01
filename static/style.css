@@ -176,4 +176,12 @@ header nav .login-icon-dropdown {
 .text-indent {
   text-indent: 5%;
   text-align: justify;
+}
+
+.logout {
+  color: #198754;
+}
+
+.logout:hover {
+  color: white;
 }/*# sourceMappingURL=style.css.map */

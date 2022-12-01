@@ -70,7 +70,6 @@ def recap():
 
 
 
-
 # @app.route('/editStockBrg/<id>', methods = ['GET', 'POST'])
 # def editStockBrg(id):
 #     openDb()

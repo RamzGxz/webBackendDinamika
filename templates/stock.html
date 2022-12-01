@@ -34,7 +34,7 @@
                         <div class="offcanvas-body">
                             <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                                 <li class="nav-item">
-                                    <a class="nav-link" aria-current="page" href="#">Home</a>
+                                    <a class="nav-link" aria-current="page" href="/">Home</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="/#contact">Contact</a>
@@ -47,9 +47,7 @@
                                     <a class="nav-link active" href="/stock">Stock</a>
                                 </li>
                                 <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Recap Data
-                      </a>
+                                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Recap Data</a>
                                     <ul class="dropdown-menu">
                                         <li><a class="dropdown-item" href="/recap">Recap Data Harian</a></li>
                                         <li><a class="dropdown-item" href="/recap#minggu">Recap Data Mingguan</a></li>
@@ -63,10 +61,7 @@
                                     <li class="nav-item">
                                         <a class="nav-link" href="{{url_for('logout')}}">
                                             <div class="login-icon-dropdown">
-                                                <button class="btn w-auto h-75 btn-outline-success  border-0 rounded-2 pe-2 ps-2 pt-1 pb-1 fs-5 text-uppercase fw-bold">
-                                <i class="fa-solid fa-right-to-bracket"></i>
-                                Logout
-                              </button>
+                                                <button class="btn w-auto h-75 btn-outline-success  border-0 rounded-2 pe-2 ps-2 pt-1 pb-1 fs-5 text-uppercase fw-bold"><i class="fa-solid fa-right-to-bracket"></i>Logout</button>
                                             </div>
                                         </a>
                                     </li>
@@ -76,10 +71,7 @@
                     </div>
                     <div class="login-icon-col ms-3">
                         <a href="{{url_for('logout')}}">
-                            <button class="btn w-100 h-75 btn-outline-success  border-0 rounded-2 pe-2 ps-2 pt-1 pb-1 fs-5 text-uppercase fw-bold">
-                    <i class="fa-solid fa-right-to-bracket"></i>
-                    logout
-                  </button>
+                            <button class="btn w-100 h-75 btn-outline-success  border-0 rounded-2 pe-2 ps-2 pt-1 pb-1 fs-5 text-uppercase fw-bold"><i class="fa-solid fa-right-to-bracket"></i>logout</button>
                         </a>
                     </div>
                 </div>
@@ -90,8 +82,11 @@
     <section>
         <div class="container margin-form">
 
-            <div class="title  mb-lg-5 mb-md-5">
+            <div class="title  mb-lg-5 mb-md-5 w-100 d-flex justify-content-between align-items-center">
                 <h1 class="card-title">Stock Barang</h1>
+                <a href="#inputStock">
+                    <button class="btn btn-success fs-6">Add Stock</button>
+                </a>
             </div>
 
             <div class="scrollAble table-responsive">
@@ -228,7 +223,7 @@
                 <li class="nav-item"><a href="/" class="nav-link px-2 text-muted">Home</a></li>
                 <li class="nav-item"><a href="/#jasa" class="nav-link px-2 text-muted">Services</a></li>
                 <li class="nav-item"><a href="/#contact" class="nav-link px-2 text-muted">Contact</a></li>
-                <li class="nav-item"><a href="/stock" class="nav-link px-2 text-muted">Stock</a></li>
+                <li class="nav-item"><a href="{{url_for('stock')}}" class="nav-link px-2 text-muted">Stock</a></li>
                 <li class="nav-item"><a href="/recap" class="nav-link px-2 text-muted">Recap</a></li>
             </ul>
             <p class="text-center text-muted">&copy; 2022 Dinamika Digital Printing</p>

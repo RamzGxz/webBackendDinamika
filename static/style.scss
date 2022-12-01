@@ -1,29 +1,29 @@
-header{
-    nav{
-        .btnLog{
+header {
+    nav {
+        .btnLog {
             align-items: center;
         }
-        .login-icon-dropdown{
+        .login-icon-dropdown {
             display: none;
         }
         @media (min-width: 576px) {
-            .login-icon-dropdown{
+            .login-icon-dropdown {
                 display: none;
             }
         }
         @media (max-width: 576px) {
-            .login-icon-dropdown{
+            .login-icon-dropdown {
                 display: block;
             }
-            .login-icon-col{
+            .login-icon-col {
                 display: none;
             }
         }
-        @media (min-width: 1200px){  
-            .login-icon-dropdown{
+        @media (min-width: 1200px) {
+            .login-icon-dropdown {
                 display: none;
             }
-            .login-icon-col{
+            .login-icon-col {
                 display: block;
             }
         }
@@ -31,81 +31,81 @@ header{
 }
 
 @media (min-width: 360px) {
-    .margin-card{
-        padding-top: 2%;
-    }
-}
-@media (min-width: 1200px) {
-    .margin-card{
+    .margin-card {
         padding-top: 2%;
     }
 }
 
-.titleSection{
+@media (min-width: 1200px) {
+    .margin-card {
+        padding-top: 2%;
+    }
+}
+
+.titleSection {
     width: 100%;
     height: 100vh;
-    .col-sm-6{
+    .col-sm-6 {
         display: flex;
         justify-content: center;
         align-items: baseline;
         flex-direction: column;
-        h1{
+        h1 {
             font-size: 60px;
             font-weight: 900;
             margin-bottom: 5%;
         }
-        button{
+        button {
             transition: all .3s;
         }
-        button:hover{
+        button:hover {
             transform: scale(1.1);
         }
     }
 }
 
-@media (max-width: 576px){
-    .titleSection{
+@media (max-width: 576px) {
+    .titleSection {
         margin-top: 9.5%;
     }
 }
 
 @media (min-width: 1200px) {
-    .titleSection{
+    .titleSection {
         margin-top: 2%;
     }
 }
 
-.margin-card{
-    img{
+.margin-card {
+    img {
         width: 100%;
         height: 70%;
     }
 }
 
 @media (min-width: 1200px) {
-    .margin-form{
+    .margin-form {
         margin-top: 8%;
     }
 }
 
-@media (max-width: 576px){
-    .margin-form{
+@media (max-width: 576px) {
+    .margin-form {
         margin-top: 20%;
     }
 }
 
-
-.scrollAble{
+.scrollAble {
     max-height: 65vh;
 }
 
 @media (max-width: 576px) {
-    .scrollAble{
+    .scrollAble {
         margin-top: 5%;
     }
 }
 
-.formInputStock{
+.formInputStock {
     height: 77vh;
     display: flex;
     flex-direction: column;
@@ -113,22 +113,22 @@ header{
 }
 
 @media (max-width: 576px) {
-    .formInputStock{
+    .formInputStock {
         margin-top: 5%;
     }
 }
 
-.buttonFormStock{
+.buttonFormStock {
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    button{
+    button {
         margin-top: 2%;
     }
 }
 
-.loginForm{
+.loginForm {
     width: 100%;
     height: 100vh;
     position: absolute;
@@ -139,16 +139,16 @@ header{
     margin-top: 2%;
     transition: all 1s;
     z-index: 999;
-    .logWrap{
+    .logWrap {
         height: 75%;
     }
     @media (max-width: 576px) {
-        .logWrap{
+        .logWrap {
             width: 100%;
             height: 100%;
         }
     }
-    .closeBtn{
+    .closeBtn {
         position: absolute;
         top: 15%;
         right: 8%;
@@ -156,12 +156,12 @@ header{
 }
 
 @media (max-width: 576px) {
-    .loginForm{
+    .loginForm {
         margin-top: 9.5%;
     }
 }
 
-.detailCard{
+.detailCard {
     position: fixed;
     top: 50%;
     left: 50%;
@@ -176,19 +176,27 @@ header{
     z-index: 999;
     visibility: hidden;
     margin-top: 2%;
-    .detailCardWrapper{
+    .detailCardWrapper {
         width: 58%;
         height: 85vh;
         background-color: white;
         border-radius: 10px;
-        .pargrph{
+        .pargrph {
             max-width: 85%;
             max-height: 35vh;
         }
     }
 }
 
-.text-indent{
+.text-indent {
     text-indent: 5%;
     text-align: justify;
+}
+
+.logout {
+    color: #198754;
+}
+
+.logout:hover {
+    color: white;
 }
