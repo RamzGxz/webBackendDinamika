@@ -91,6 +91,3 @@ def recap():
 #     else:
 #         closeDb()
 #         return redirect(url_for('stock', data = data))
-
-if __name__ == '__main__':
-    app.run('127.0.0.1', 3333)
