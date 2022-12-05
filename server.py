@@ -63,7 +63,19 @@ def stock():
     
 @app.route('/recap')
 def recap():
+    token = request.cookies.get('token')
+    if not token:
+        return render_template('errLogin.html')
+    conn,cursor = openDb()
+    checkAuthErr = authorization(conn,cursor,token)
+
+    if(checkAuthErr):
+        return deleteCookie()
     return render_template('recap.html')
+
+@app.route('/edit', methods=['GET','POST'])
+def edit(id):
+    conn,cursor = openDb()
 
 
 

@@ -52,31 +52,39 @@
                                         Recap Data
                                     </a>
                                     <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="recap.html">Recap Data Harian</a></li>
-                                        <li><a class="dropdown-item" href="recap.html#minggu">Recap Data Mingguan</a>
+                                        <li><a class="dropdown-item" href="/recap">Recap Data Harian</a></li>
+                                        <li><a class="dropdown-item" href="/recap#minggu">Recap Data Mingguan</a>
                                         </li>
-                                        <li><a class="dropdown-item" href="recap.html#bulan">Recap Data Bulanan</a></li>
-                                        <li><a class="dropdown-item" href="recap.html#tahun">Recap Data Tahunan</a></li>
+                                        <li><a class="dropdown-item" href="/recap#bulan">Recap Data Bulanan</a></li>
+                                        <li><a class="dropdown-item" href="/recap#tahun">Recap Data Tahunan</a></li>
                                         <li>
                                             <hr class="dropdown-divider">
                                         </li>
-                                        <li><a class="dropdown-item" href="#">View Recap All Data</a></li>
+                                        <li><a class="dropdown-item" href="/recap">View Recap All Data</a></li>
                                     </ul>
                                     <li class="nav-item" onclick="login()">
-                                        <a class="nav-link" href="">
-                                            <div class="login-icon-dropdown" id="lgnBtn">
+                                        {% if logout %}
+                                        <div class="login-icon-dropdown" id="lgnBtn">
+                                            <a href="{{url_for('logout')}}">
                                                 <button class="btn w-auto h-75 btn-outline-success  border-0 rounded-2 pe-2 ps-2 pt-1 pb-1 fs-5 text-uppercase fw-bold">
-                                                <i class="fa-solid fa-right-to-bracket"></i>
-                                                Login
+                                                    <i class="fa-solid fa-right-to-bracket" ></i>
+                                                    Logout
+                                                </button>
+                                            </a>
+                                        </div>
+                                        {% else %}
+                                        <div class="login-icon-dropdown" id="lgnBtn">
+                                            <button class="btn w-auto h-75 btn-outline-success  border-0 rounded-2 pe-2 ps-2 pt-1 pb-1 fs-5 text-uppercase fw-bold" data-close>
+                                            <i class="fa-solid fa-right-to-bracket"></i>
+                                            Login
                                             </button>
-                                            </div>
-                                        </a>
+                                        </div>
+                                        {% endif %}
                                     </li>
                                 </li>
                             </ul>
                         </div>
                     </div>
-
                     {% if logout: %}
                     <div class="login-icon-col ms-3">
                         <a href="{{url_for('logout')}}" class="text-decoration-none">

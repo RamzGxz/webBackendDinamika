@@ -54,9 +54,9 @@ const detailPopup = () => {
 }
 
 
-document.addEventListener('click',function(e){
+document.addEventListener('click', function(e) {
 
-    if(e.target.classList.contains('edit-stock')){
+    if (e.target.classList.contains('edit-stock')) {
         location.href = "#editStock"
         const td = e.target.parentElement
         const jumlah = td.previousElementSibling.previousElementSibling
