@@ -21,3 +21,10 @@ def getStok(conn,cursor):
     cursor.close()
     conn.close()
     return result
+
+def getRecap(conn, cursor):
+    cursor.execute('select * from recap')
+    result = cursor.fetchall()
+    cursor.close()
+    conn.close
+    return result

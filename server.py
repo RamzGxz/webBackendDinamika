@@ -32,7 +32,7 @@ def logout():
 def stock():
     token = request.cookies.get('token')
     if not token:
-        return render_template('errLogin.html')
+        return render_template('stock.html')
     # pembatasan authorization
     conn,cursor = openDb()
     checkAuthErr = authorization(conn,cursor,token)
@@ -61,7 +61,7 @@ def stock():
     result = getStok(conn,cursor)
     return render_template('stock.html', data=result)
     
-@app.route('/recap')
+@app.route('/recap', methods = ['GET', 'POST'])
 def recap():
     token = request.cookies.get('token')
     if not token:
@@ -71,11 +71,25 @@ def recap():
 
     if(checkAuthErr):
         return deleteCookie()
-    return render_template('recap.html')
 
-@app.route('/edit', methods=['GET','POST'])
-def edit(id):
-    conn,cursor = openDb()
+    if request.method == 'POST':
+        details = request.form
+        kodeBrg = details['kodeBrg']
+        namaBrg = details['namaBrg']
+        hargaBrg = details['hargaBrg']
+        jumlahBrg = details['jumlahBrg']
+        conn,cursor = openDb()
+        sql = 'insert into recap(kodeBrg, namaBrg, hargaBrg, jumlahBrg) values(%s,%s,%s,%s)'
+        val = (kodeBrg,namaBrg,hargaBrg,jumlahBrg)
+        cursor.execute(sql, val)
+        conn.commit()
+        cursor.close()
+        conn.close()
+        return(redirect(url_for('recap')))
+    conn, cursor = openDb()
+    result = getRecap(conn, cursor)
+    return render_template('recap.html', data=result)
+
 
 
 

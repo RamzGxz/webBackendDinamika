@@ -101,7 +101,7 @@
                             <th scope="col">Nama Barang</th>
                             <th scope="col">Harga Barang</th>
                             <th scope="col">Jumlah Barang</th>
-                            <th scope="col">Tanggal</th>
+                            <th scope="col">Tanggal Input</th>
                             <th scope="col">Actions</th>
                         </tr>
                     </thead>
@@ -127,7 +127,8 @@
             </table>
         </div>
     </section>
-
+    {% if logout %}
+    <!-- inputStockLogout -->
     <section class="formInputStock" id="inputStock">
         <div class="container">
             <div class="col-sm5">
@@ -138,28 +139,28 @@
                             <td>Kode Barang</td>
                             <td>:</td>
                             <td>
-                                <input type="text" class="form-control" name="kodeBrg" required>
+                                <input type="text" class="form-control" name="kodeBrg" disabled>
                             </td>
                         </tr>
                         <tr>
                             <td>Nama Barang</td>
                             <td>:</td>
                             <td>
-                                <input type="text" class="form-control" name="namaBrg" required>
+                                <input type="text" class="form-control" name="namaBrg" disabled>
                             </td>
                         </tr>
                         <tr>
                             <td>Harga Barang</td>
                             <td>:</td>
                             <td>
-                                <input type="text" class="form-control" name="hargaBrg" required>
+                                <input type="number" class="form-control" name="hargaBrg" disabled>
                             </td>
                         </tr>
                         <tr>
                             <td>Jumlah Barang</td>
                             <td>:</td>
                             <td>
-                                <input type="text" class="form-control" name="jumlahBrg" required>
+                                <input type="number" class="form-control" name="jumlahBrg" disabled>
                             </td>
                         </tr>
                     </table>
@@ -171,11 +172,12 @@
         </div>
     </section>
 
+    <!-- editStockLogout -->
     <section class="formInputStock" id="editStock">
         <div class="container">
             <div class="col-sm5">
                 <h1>Edit Stock Barang</h1>
-                <form action="url_for('editStockBrg', id={{data[0]}})" method="post" class="mt-sm-5" id="form-edit">
+                <form action="#" method="post" class="mt-sm-5" id="form-edit">
                     <table class="table table-borderless">
                         <tr>
                             <td>
@@ -207,7 +209,7 @@
                             <td>Jumlah Barang</td>
                             <td>:</td>
                             <td>
-                                <input type="text" class="form-control" id="jumlah" name="jumlahBrg" value="{{data[4]}}" required>
+                                <input type="text" class="form-control" id="jumlah" name="jumlahBrg" required>
                             </td>
                         </tr>
                     </table>
@@ -218,6 +220,102 @@
             </div>
         </div>
     </section>
+
+    {% else %}
+    <!-- inputStockLogin -->
+    <section class="formInputStock" id="inputStock">
+        <div class="container">
+            <div class="col-sm5">
+                <h1>Input Stock Barang</h1>
+                <form action="/stock" method="post" class="mt-sm-5">
+                    <table class="table table-borderless">
+                        <tr>
+                            <td>Kode Barang</td>
+                            <td>:</td>
+                            <td>
+                                <input type="text" class="form-control" name="kodeBrg" required>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Nama Barang</td>
+                            <td>:</td>
+                            <td>
+                                <input type="text" class="form-control" name="namaBrg" required>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Harga Barang</td>
+                            <td>:</td>
+                            <td>
+                                <input type="number" class="form-control" name="hargaBrg" required>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Jumlah Barang</td>
+                            <td>:</td>
+                            <td>
+                                <input type="number" class="form-control" name="jumlahBrg" required>
+                            </td>
+                        </tr>
+                    </table>
+                    <div class="buttonFormStock">
+                        <button class="btn btn-success btn-lg" type="submit">SUBMIT!</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- editStockLogin -->
+    <section class="formInputStock" id="editStock">
+        <div class="container">
+            <div class="col-sm5">
+                <h1>Edit Stock Barang</h1>
+                <form action="#" method="post" class="mt-sm-5" id="form-edit">
+                    <table class="table table-borderless">
+                        <tr>
+                            <td>
+                                <input type="hidden" name="id" class="form-control" required>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Kode Barang</td>
+                            <td>:</td>
+                            <td>
+                                <input type="text" class="form-control" id="kode" name="kodeBrg" required>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Nama Barang</td>
+                            <td>:</td>
+                            <td>
+                                <input type="text" class="form-control" id="nama" name="namaBrg" required>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Harga Barang</td>
+                            <td>:</td>
+                            <td>
+                                <input type="text" class="form-control" id="harga" name="hargaBrg" required>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Jumlah Barang</td>
+                            <td>:</td>
+                            <td>
+                                <input type="text" class="form-control" id="jumlah" name="jumlahBrg"required>
+                            </td>
+                        </tr>
+                    </table>
+                    <div class="buttonFormStock">
+                        <button class="btn btn-success btn-lg" type="submit">SUBMIT!</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+    {% endif %}
+
 
     <!-- loginFormEnd -->
     <div class="container">

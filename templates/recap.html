@@ -44,10 +44,10 @@
                                 </li>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link active" href="/stock">Stock</a>
+                                    <a class="nav-link" href="/stock">Stock</a>
                                 </li>
                                 <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Recap Data</a>
+                                    <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Recap Data</a>
                                     <ul class="dropdown-menu">
                                         <li><a class="dropdown-item" href="/recap">Recap Data Harian</a></li>
                                         <li><a class="dropdown-item" href="/recap#minggu">Recap Data Mingguan</a></li>
@@ -85,8 +85,11 @@
     <section id="harian">
         <div class="container margin-form">
 
-            <div class="title  mb-lg-5 mb-md-5">
+            <div class="title  mb-lg-5 mb-md-5 w-100 d-flex justify-content-between align-items-center">
                 <h1 class="card-title">Recap Data Harian</h1>
+                <a href="#inputRecapData">
+                    <button class="btn btn-success fs-6">Add Recap</button>
+                </a>
             </div>
 
             <div class="scrollAble table-responsive">
@@ -98,21 +101,22 @@
                             <th scope="col">Nama Barang</th>
                             <th scope="col">Harga Barang</th>
                             <th scope="col">Jumlah Barang</th>
-                            <th scope="col">Tanggal</th>
+                            <th scope="col">Tanggal Input</th>
                             <th scope="col">Actions</th>
                         </tr>
                     </thead>
                     <tbody>
 
+                        {% for row in data %} 
                         <tr>
-                            <th scope="row">1</th>
-                            <td>NaN</td>
-                            <td>NaN</td>
-                            <td>NaN</td>
-                            <td>NaN</td>
-                            <td>NaN</td>
+                            <th scope="row">{{row[0]}}</th>
+                            <td>{{row[1]}}</td>
+                            <td>{{row[2]}}</td>
+                            <td>Rp. {{row[3]}}</td>
+                            <td>{{row[4]}}</td>
+                            <td>{{row[5]}}</td>
                             <td>
-                                <button class="btn btn-success btn-sm">Edit </button>
+                                <button class="btn btn-success btn-sm editRecap">Edit </button>
                                 <button class="btn btn-danger btn-sm">Delete</button>
                             </td>
                         </tr>
@@ -121,44 +125,45 @@
                             <th colspan="6" class="fs-3 border">Total</th>
                             <th class="fs-3 border">NaN</th>
                         </tr>
+                        {% endfor %}
                     </tbody>
-            </div>
+                </div>
             </table>
         </div>
     </section>
 
-    <section class="formInputStock" id="inputData">
+    <section class="formInputStock" id="inputRecapData">
         <div class="container">
             <div class="col-sm5">
                 <h1>Input Data</h1>
-                <form action="#" method="post" class="mt-sm-5">
+                <form action="/recap" method="post" class="mt-sm-5">
                     <table class="table table-borderless">
                         <tr>
                             <td>Kode Barang</td>
                             <td>:</td>
                             <td>
-                                <input type="text" class="form-control">
+                                <input type="text" class="form-control" name="kodeBrg" required>
                             </td>
                         </tr>
                         <tr>
                             <td>Nama Barang</td>
                             <td>:</td>
                             <td>
-                                <input type="text" class="form-control">
+                                <input type="text" class="form-control" name="namaBrg" required>
                             </td>
                         </tr>
                         <tr>
                             <td>Harga Barang</td>
                             <td>:</td>
                             <td>
-                                <input type="text" class="form-control">
+                                <input type="number" class="form-control" name="hargaBrg" required>
                             </td>
                         </tr>
                         <tr>
                             <td>Jumlah Barang</td>
                             <td>:</td>
                             <td>
-                                <input type="text" class="form-control">
+                                <input type="number" class="form-control" name="jumlahBrg" required>
                             </td>
                         </tr>
                     </table>
@@ -170,38 +175,38 @@
         </div>
     </section>
 
-    <section class="formInputStock" id="editData">
+    <section class="formInputStock" id="editRecapData">
         <div class="container">
             <div class="col-sm5">
                 <h1>Edit Data</h1>
-                <form action="#" method="post" class="mt-sm-5">
+                <form action="#" method="post" class="mt-sm-5" id="form-edit-recap">
                     <table class="table table-borderless">
                         <tr>
                             <td>Kode Barang</td>
                             <td>:</td>
                             <td>
-                                <input type="text" class="form-control">
+                                <input type="text" class="form-control" required id="kodeRecap">
                             </td>
                         </tr>
                         <tr>
-                            <td>Kode Barang</td>
+                            <td>Nama Barang</td>
                             <td>:</td>
                             <td>
-                                <input type="text" class="form-control">
+                                <input type="text" class="form-control" required id="namaRecap">
                             </td>
                         </tr>
                         <tr>
                             <td>Harga Barang</td>
                             <td>:</td>
                             <td>
-                                <input type="text" class="form-control">
+                                <input type="text" class="form-control" required id="hargaRecap">
                             </td>
                         </tr>
                         <tr>
                             <td>Jumlah Barang</td>
                             <td>:</td>
                             <td>
-                                <input type="text" class="form-control">
+                                <input type="text" class="form-control" required id="jumlahRecap">
                             </td>
                         </tr>
                     </table>

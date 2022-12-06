@@ -54,20 +54,42 @@ const detailPopup = () => {
 }
 
 
-document.addEventListener('click', function(e) {
+const editStock = () =>{
+    document.addEventListener('click', function(e) {
+        if (e.target.classList.contains('edit-stock')) {
+            location.href = "#editStock"
+            const td = e.target.parentElement
+            const jumlah = td.previousElementSibling.previousElementSibling
+            const harga = jumlah.previousElementSibling
+            const nama = harga.previousElementSibling
+            const kode = nama.previousElementSibling
+    
+            const formEdit = document.getElementById('form-edit')
+            formEdit.querySelector('#kode').value = kode.textContent
+            formEdit.querySelector('#nama').value = nama.textContent
+            formEdit.querySelector('#harga').value = harga.textContent
+            formEdit.querySelector('#jumlah').value = jumlah.textContent
+        }
+    })
+}
+editStock()
 
-    if (e.target.classList.contains('edit-stock')) {
-        location.href = "#editStock"
-        const td = e.target.parentElement
-        const jumlah = td.previousElementSibling.previousElementSibling
-        const harga = jumlah.previousElementSibling
-        const nama = harga.previousElementSibling
-        const kode = nama.previousElementSibling
-
-        const formEdit = document.getElementById('form-edit')
-        formEdit.querySelector('#kode').value = kode.textContent
-        formEdit.querySelector('#nama').value = nama.textContent
-        formEdit.querySelector('#harga').value = harga.textContent
-        formEdit.querySelector('#jumlah').value = jumlah.textContent
-    }
-})
+const editRecap = () =>{
+    document.addEventListener('click', function(e) {
+        if (e.target.classList.contains('editRecap')) {
+            location.href = "#editRecapData"
+            const td = e.target.parentElement
+            const jumlah = td.previousElementSibling.previousElementSibling
+            const harga = jumlah.previousElementSibling
+            const nama = harga.previousElementSibling
+            const kode = nama.previousElementSibling
+    
+            const formEdit = document.getElementById('form-edit-recap')
+            formEdit.querySelector('#kodeRecap').value = kode.textContent
+            formEdit.querySelector('#namaRecap').value = nama.textContent
+            formEdit.querySelector('#hargaRecap').value = harga.textContent
+            formEdit.querySelector('#jumlahRecap').value = jumlah.textContent
+        }
+    })
+}
+editRecap()
