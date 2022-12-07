@@ -1,14 +1,14 @@
 const login = () => {
     const btn = document.getElementById("logWrap")
     const close = document.getElementById("close")
-    btn.style.top = "50%"
+    btn.style.top = "46%"
     btn.addEventListener("wheel", function(e) {
         e.preventDefault()
         e.stopPropagation()
         return false
     })
     close.addEventListener("click", function() {
-        btn.style.top = "-50%"
+        btn.style.top = "-60%"
     })
 }
 

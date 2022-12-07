@@ -25,21 +25,18 @@ def index():
     
 @app.route('/logout',methods=['GET'])
 def logout():
-    return deleteCookie()
+    resp = make_response(redirect('/'))
+    resp.delete_cookie('token')
+    return resp
 
 
 @app.route('/stock',methods=['GET','POST'])
 def stock():
     token = request.cookies.get('token')
+    logout = False
     if not token:
-        return render_template('stock.html')
+        logout = True
     # pembatasan authorization
-    conn,cursor = openDb()
-    checkAuthErr = authorization(conn,cursor,token)
-
-    #check error authorization
-    if(checkAuthErr):
-        return deleteCookie()
 
     if(request.method == 'POST'):
         details = request.form
@@ -59,18 +56,13 @@ def stock():
     
     conn,cursor = openDb()
     result = getStok(conn,cursor)
-    return render_template('stock.html', data=result)
+    return render_template('stock.html', data=result,logout=logout)
     
 @app.route('/recap', methods = ['GET', 'POST'])
 def recap():
     token = request.cookies.get('token')
     if not token:
         return render_template('errLogin.html')
-    conn,cursor = openDb()
-    checkAuthErr = authorization(conn,cursor,token)
-
-    if(checkAuthErr):
-        return deleteCookie()
 
     if request.method == 'POST':
         details = request.form
@@ -86,10 +78,11 @@ def recap():
         cursor.close()
         conn.close()
         return(redirect(url_for('recap')))
-    conn, cursor = openDb()
-    result = getRecap(conn, cursor)
-    return render_template('recap.html', data=result)
+    result = getRecap()
 
+    sqlCalculate = calculateRecap()[0]
+    return render_template('recap.html', data=result,sqlCalculate=sqlCalculate)
+    
 
 
 

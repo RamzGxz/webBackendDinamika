@@ -59,6 +59,7 @@
                                         <li><a class="dropdown-item" href="#">View Recap All Data</a></li>
                                     </ul>
                                     <li class="nav-item">
+                                        {% if logout %}
                                         <div class="login-icon-dropdown" id="lgnBtn">
                                             <a href="{{url_for('logout')}}">
                                                 <button class="btn w-auto h-75 btn-outline-success  border-0 rounded-2 pe-2 ps-2 pt-1 pb-1 fs-5 text-uppercase fw-bold">
@@ -67,16 +68,36 @@
                                                 </button>
                                             </a>
                                         </div>
+                                        {% else %}
+                                        <div class="login-icon-dropdown" id="lgnBtn">
+                                            <button class="btn w-auto h-75 btn-outline-success  border-0 rounded-2 pe-2 ps-2 pt-1 pb-1 fs-5 text-uppercase fw-bold" data-close>
+                                            <i class="fa-solid fa-right-to-bracket"></i>
+                                            Login
+                                            </button>
+                                        </div>
+                                        {% endif %}
                                     </li>
                                 </li>
                             </ul>
                         </div>
                     </div>
+                    {% if logout %}
+                    <div class="login-icon-col ms-3" onclick="login()">
+                        <button class="btn w-100 h-75 btn-outline-success  border-0 rounded-2 pe-2 ps-2 pt-1 pb-1 fs-5 text-uppercase fw-bold">
+                            <i class="fa-solid fa-right-to-bracket"></i>
+                            Login
+                        </button>
+                    </div>
+                    {% else %}
                     <div class="login-icon-col ms-3">
-                        <a href="{{url_for('logout')}}">
-                            <button class="btn w-100 h-75 btn-outline-success  border-0 rounded-2 pe-2 ps-2 pt-1 pb-1 fs-5 text-uppercase fw-bold"><i class="fa-solid fa-right-to-bracket"></i> logout</button>
+                        <a href="{{url_for('logout')}}" class="text-decoration-none">
+                            <button class="btn w-100 h-75 btn-outline-success  border-0 rounded-2 pe-2 ps-2 pt-1 pb-1 fs-5 text-uppercase fw-bold">
+                                <i class="fa-solid fa-right-to-bracket"></i>
+                                Logout
+                            </button>
                         </a>
                     </div>
+                    {% endif %}
                 </div>
             </div>
         </nav>
@@ -130,11 +151,11 @@
     {% if logout %}
     <!-- inputStockLogout -->
     <section class="formInputStock" id="inputStock">
-        <div class="container">
+        <div class="container text-muted">
             <div class="col-sm5">
                 <h1>Input Stock Barang</h1>
                 <form action="/stock" method="post" class="mt-sm-5">
-                    <table class="table table-borderless">
+                    <table class="table table-borderless text-muted">
                         <tr>
                             <td>Kode Barang</td>
                             <td>:</td>
@@ -165,7 +186,10 @@
                         </tr>
                     </table>
                     <div class="buttonFormStock">
-                        <button class="btn btn-success btn-lg" type="submit">SUBMIT!</button>
+                        <button class="btn btn-success btn-lg disabled" type="submit">SUBMIT!</button>
+                    </div>
+                    <div class="nb">
+                        <p class="text-muted">* only admin can be update or input stock please login as admin</p>
                     </div>
                 </form>
             </div>
@@ -174,49 +198,52 @@
 
     <!-- editStockLogout -->
     <section class="formInputStock" id="editStock">
-        <div class="container">
+        <div class="container text-muted">
             <div class="col-sm5">
                 <h1>Edit Stock Barang</h1>
                 <form action="#" method="post" class="mt-sm-5" id="form-edit">
-                    <table class="table table-borderless">
+                    <table class="table table-borderless text-muted">
                         <tr>
                             <td>
-                                <input type="hidden" name="id" class="form-control" required>
+                                <input type="hidden" name="id" class="form-control" required disabled>
                             </td>
                         </tr>
                         <tr>
                             <td>Kode Barang</td>
                             <td>:</td>
                             <td>
-                                <input type="text" class="form-control" id="kode" name="kodeBrg" required>
+                                <input type="text" class="form-control" id="kode" name="kodeBrg" required disabled>
                             </td>
                         </tr>
                         <tr>
                             <td>Nama Barang</td>
                             <td>:</td>
                             <td>
-                                <input type="text" class="form-control" id="nama" name="namaBrg" required>
+                                <input type="text" class="form-control" id="nama" name="namaBrg" required disabled>
                             </td>
                         </tr>
                         <tr>
                             <td>Harga Barang</td>
                             <td>:</td>
                             <td>
-                                <input type="text" class="form-control" id="harga" name="hargaBrg" required>
+                                <input type="text" class="form-control" id="harga" name="hargaBrg" required disabled>
                             </td>
                         </tr>
                         <tr>
                             <td>Jumlah Barang</td>
                             <td>:</td>
                             <td>
-                                <input type="text" class="form-control" id="jumlah" name="jumlahBrg" required>
+                                <input type="text" class="form-control" id="jumlah" name="jumlahBrg" required disabled>
                             </td>
                         </tr>
                     </table>
                     <div class="buttonFormStock">
-                        <button class="btn btn-success btn-lg" type="submit">SUBMIT!</button>
+                        <button class="btn btn-success btn-lg disabled" type="submit">SUBMIT!</button>
                     </div>
                 </form>
+                <div class="nb">
+                    <p class="text-muted">* only admin can be update or input stock please login as admin</p>
+                </div>
             </div>
         </div>
     </section>
@@ -316,7 +343,28 @@
     </section>
     {% endif %}
 
-
+    <section class="loginForm d-flex justify-content-center align-items-center position-fixed" id="logWrap">
+        <div class="container d-flex justify-content-center bg-dark rounded shadow flex-column align-items-center logWrap">
+            <p class="fs-3 text-white">{{err}}</p>
+            <img class="" src="{{url_for('static', filename='/images/iconDinamika.png')}}" alt="" width="150" height="100">
+            <form class="w-75" method="post" action="/">
+                <h1 class="h3 fw-normal text-white mt-4 mb-4 text-center">Please sign in</h1>
+                <div class="form-floating mb-3 w-75 m-auto">
+                    <input type="text" class="form-control" id="floatingInput" placeholder="enter a Username" name="username" required>
+                    <label for="floatingInput">Username</label>
+                </div>
+                <div class="form-floating mb-3 w-75 m-auto">
+                    <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password" required>
+                    <label for="floatingPassword">Password</label>
+                </div>
+                <div class="text-center">
+                    <button class="btn btn-lg btn-danger w-auto fs-3 text-uppercase" type="submit">Sign in</button>
+                </div>
+                <p class="mt-5 text-muted text-center">&copy; 2017-2022</p>
+            </form>
+            <button class="btn bg-danger btn-close closeBtn" id="close"></button>
+        </div>
+    </section>
     <!-- loginFormEnd -->
     <div class="container">
         <footer class="py-3 my-4">

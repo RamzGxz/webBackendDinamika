@@ -120,12 +120,12 @@
                                 <button class="btn btn-danger btn-sm">Delete</button>
                             </td>
                         </tr>
+                        {% endfor %}
 
                         <tr>
                             <th colspan="6" class="fs-3 border">Total</th>
-                            <th class="fs-3 border">NaN</th>
+                            <th class="fs-3 border">Rp. {{sqlCalculate}}</th>
                         </tr>
-                        {% endfor %}
                     </tbody>
                 </div>
             </table>

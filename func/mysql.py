@@ -22,9 +22,18 @@ def getStok(conn,cursor):
     conn.close()
     return result
 
-def getRecap(conn, cursor):
+def getRecap():
+    conn,cursor = openDb()
     cursor.execute('select * from recap')
     result = cursor.fetchall()
     cursor.close()
-    conn.close
+    conn.close()
+    return result
+
+def calculateRecap():
+    conn,cursor = openDb()
+    cursor.execute('select sum(hargaBrg * jumlahBrg) as total from recap')
+    result = cursor.fetchone()
+    cursor.close()
+    conn.close()
     return result
