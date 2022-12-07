@@ -59,7 +59,7 @@
                                         <li><a class="dropdown-item" href="#">View Recap All Data</a></li>
                                     </ul>
                                     <li class="nav-item">
-                                        {% if logout %}
+                                        {% if not login %}
                                         <div class="login-icon-dropdown" id="lgnBtn">
                                             <a href="{{url_for('logout')}}">
                                                 <button class="btn w-auto h-75 btn-outline-success  border-0 rounded-2 pe-2 ps-2 pt-1 pb-1 fs-5 text-uppercase fw-bold">
@@ -81,7 +81,7 @@
                             </ul>
                         </div>
                     </div>
-                    {% if logout %}
+                    {% if login %}
                     <div class="login-icon-col ms-3" onclick="login()">
                         <button class="btn w-100 h-75 btn-outline-success  border-0 rounded-2 pe-2 ps-2 pt-1 pb-1 fs-5 text-uppercase fw-bold">
                             <i class="fa-solid fa-right-to-bracket"></i>
@@ -137,7 +137,7 @@
                             <td>{{row[5]}}</td>
                             <td>
                                 <button class="btn btn-success btn-sm edit-stock">Edit </button>
-                                <a href="/delStockBrg/{{row[0]}}">
+                                <a href="/stock/{{row[0]}}">
                                     <button class="btn btn-danger btn-sm">Delete</button>
                                 </a>
                             </td>
@@ -148,7 +148,7 @@
             </table>
         </div>
     </section>
-    {% if logout %}
+    {% if login %}
     <!-- inputStockLogout -->
     <section class="formInputStock" id="inputStock">
         <div class="container text-muted">
@@ -298,11 +298,11 @@
         <div class="container">
             <div class="col-sm5">
                 <h1>Edit Stock Barang</h1>
-                <form action="#" method="post" class="mt-sm-5" id="form-edit">
+                <form action="/stock/edit" method="post" class="mt-sm-5" id="form-edit">
                     <table class="table table-borderless">
                         <tr>
                             <td>
-                                <input type="hidden" name="id" class="form-control" required>
+                                <input type="hidden" name="id" class="form-control" id="id" required>
                             </td>
                         </tr>
                         <tr>

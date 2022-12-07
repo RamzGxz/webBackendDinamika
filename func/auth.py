@@ -47,3 +47,8 @@ def authorization(conn,cursor,token):
         cursor.close()
         conn.close()
         return True
+
+def deleteCookie():
+    resp = make_response(redirect('/'))
+    resp.delete_cookie('token')
+    return resp

@@ -6,9 +6,9 @@ app = Flask(__name__)
 
 @app.route('/',methods = ['GET','POST'])
 def index():
-    logout = False
+    login = False
     if(request.cookies.get('token')):
-        logout = True
+        login = True
 
     if(request.method == 'POST'):
         data = request.form
@@ -20,43 +20,35 @@ def index():
 
         # check user, create token,set cookie and redirect stock
         return authentication(user,password)
-    return render_template('index.html',logout=logout)
+    return render_template('index.html',login=login)
 
     
 @app.route('/logout',methods=['GET'])
 def logout():
-    resp = make_response(redirect('/'))
-    resp.delete_cookie('token')
-    return resp
+    return deleteCookie()
 
 
 @app.route('/stock',methods=['GET','POST'])
 def stock():
     token = request.cookies.get('token')
-    logout = False
-    if not token:
-        logout = True
-    # pembatasan authorization
+    login = False
+    if token:
+        # check token authorization
+        conn,cursor = openDb()
+        check_err = authorization(conn,cursor,token)
+        if(check_err):
+            deleteCookie()
+    else:
+        login = True
+
 
     if(request.method == 'POST'):
         details = request.form
-        kodeBrg = details['kodeBrg']
-        namaBrg = details['namaBrg']
-        hargaBrg = details['hargaBrg']
-        jumlahBrg = details['jumlahBrg']
-
-        conn,cursor = openDb()
-        sql = 'insert into stock(kodeBrg, namaBrg, hargaBrg, jumlahBrg) values(%s,%s,%s,%s)'
-        val = (kodeBrg,namaBrg,hargaBrg,jumlahBrg)
-        cursor.execute(sql, val)
-        conn.commit()
-        cursor.close()
-        conn.close()
+        insertData(details,'stock')
         return(redirect(url_for('stock')))
     
-    conn,cursor = openDb()
-    result = getStok(conn,cursor)
-    return render_template('stock.html', data=result,logout=logout)
+    result = getStok()
+    return render_template('stock.html', data=result,login=login)
     
 @app.route('/recap', methods = ['GET', 'POST'])
 def recap():
@@ -66,17 +58,7 @@ def recap():
 
     if request.method == 'POST':
         details = request.form
-        kodeBrg = details['kodeBrg']
-        namaBrg = details['namaBrg']
-        hargaBrg = details['hargaBrg']
-        jumlahBrg = details['jumlahBrg']
-        conn,cursor = openDb()
-        sql = 'insert into recap(kodeBrg, namaBrg, hargaBrg, jumlahBrg) values(%s,%s,%s,%s)'
-        val = (kodeBrg,namaBrg,hargaBrg,jumlahBrg)
-        cursor.execute(sql, val)
-        conn.commit()
-        cursor.close()
-        conn.close()
+        insertData(details,'recap')
         return(redirect(url_for('recap')))
     result = getRecap()
 
@@ -89,24 +71,26 @@ def recap():
 
 
 
-# @app.route('/editStockBrg/<id>', methods = ['GET', 'POST'])
-# def editStockBrg(id):
-#     openDb()
-#     cursor.execute('select kodeBrg, namaBrg, hargaBrg, jumlahBrg from stock where id=%s', (id))
-#     data = cursor.fetchone()
-#     if request.method == 'POST':
-#         details = request.form
-#         id = details['id']
-#         kodeBrg = details['kodeBrg']
-#         namaBrg = details['namaBrg']
-#         hargaBrg = details['hargaBrg']
-#         jumlahBrg = details['jumlahBrg']
-#         sql = 'UPDATE stock set kodeBrg=%s, namaBrg=%s, hargaBrg=%s, jumlahBrg=%s where id=%s'
-#         val = (kodeBrg, namaBrg, hargaBrg, jumlahBrg, id)
-#         cursor.execute(sql, val)
-#         conn.commit()
-#         closeDb()
-#         return redirect(url_for('stock'))
-#     else:
-#         closeDb()
-#         return redirect(url_for('stock', data = data))
+@app.route('/stock/edit/', methods = ['POST'])
+def editStockBrg():
+    data = request.form
+    updateData(data,'stock')
+    return redirect(url_for('stock'))
+
+
+@app.route('/stock/<int:id>',methods=['GET'])
+def deleteStockBrg(id):
+    deleteData(id,'stock')
+    return redirect(url_for('stock'))
+
+
+@app.route('/recap/edit/', methods = ['POST'])
+def editRecapkBrg():
+    data = request.form
+    updateData(data,'recap')
+    return redirect(url_for('recap'))
+
+@app.route('/recap/<int:id>',methods=['GET'])
+def deleteRecapBrg(id):
+    deleteData(id,'recap')
+    return redirect(url_for('recap'))

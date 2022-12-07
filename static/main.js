@@ -63,11 +63,13 @@ const editStock = () =>{
             const harga = jumlah.previousElementSibling
             const nama = harga.previousElementSibling
             const kode = nama.previousElementSibling
+            const id = kode.previousElementSibling
     
             const formEdit = document.getElementById('form-edit')
+            formEdit.querySelector('#id').value = id.textContent
             formEdit.querySelector('#kode').value = kode.textContent
             formEdit.querySelector('#nama').value = nama.textContent
-            formEdit.querySelector('#harga').value = harga.textContent
+            formEdit.querySelector('#harga').value = harga.textContent.split(' ')[1]
             formEdit.querySelector('#jumlah').value = jumlah.textContent
         }
     })
@@ -83,11 +85,13 @@ const editRecap = () =>{
             const harga = jumlah.previousElementSibling
             const nama = harga.previousElementSibling
             const kode = nama.previousElementSibling
+            const id = kode.previousElementSibling
     
             const formEdit = document.getElementById('form-edit-recap')
+            formEdit.querySelector('#id').value = id.textContent
             formEdit.querySelector('#kodeRecap').value = kode.textContent
             formEdit.querySelector('#namaRecap').value = nama.textContent
-            formEdit.querySelector('#hargaRecap').value = harga.textContent
+            formEdit.querySelector('#hargaRecap').value = harga.textContent.split(' ')[1]
             formEdit.querySelector('#jumlahRecap').value = jumlah.textContent
         }
     })

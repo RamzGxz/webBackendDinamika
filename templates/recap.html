@@ -117,7 +117,9 @@
                             <td>{{row[5]}}</td>
                             <td>
                                 <button class="btn btn-success btn-sm editRecap">Edit </button>
-                                <button class="btn btn-danger btn-sm">Delete</button>
+                                <a href="/recap/{{row[0]}}">
+                                    <button class="btn btn-danger btn-sm">Delete</button>
+                                </a>
                             </td>
                         </tr>
                         {% endfor %}
@@ -179,34 +181,39 @@
         <div class="container">
             <div class="col-sm5">
                 <h1>Edit Data</h1>
-                <form action="#" method="post" class="mt-sm-5" id="form-edit-recap">
+                <form action="/recap/edit" method="post" class="mt-sm-5" id="form-edit-recap">
                     <table class="table table-borderless">
+                        <tr>
+                            <td>
+                                <input type="hidden" name="id" class="form-control" id="id" required>
+                            </td>
+                        </tr>
                         <tr>
                             <td>Kode Barang</td>
                             <td>:</td>
                             <td>
-                                <input type="text" class="form-control" required id="kodeRecap">
+                                <input type="text" class="form-control" required id="kodeRecap" name="kodeBrg">
                             </td>
                         </tr>
                         <tr>
                             <td>Nama Barang</td>
                             <td>:</td>
                             <td>
-                                <input type="text" class="form-control" required id="namaRecap">
+                                <input type="text" class="form-control" required id="namaRecap" name="namaBrg">
                             </td>
                         </tr>
                         <tr>
                             <td>Harga Barang</td>
                             <td>:</td>
                             <td>
-                                <input type="text" class="form-control" required id="hargaRecap">
+                                <input type="text" class="form-control" required id="hargaRecap" name="hargaBrg">
                             </td>
                         </tr>
                         <tr>
                             <td>Jumlah Barang</td>
                             <td>:</td>
                             <td>
-                                <input type="text" class="form-control" required id="jumlahRecap">
+                                <input type="text" class="form-control" required id="jumlahRecap" name="jumlahBrg">
                             </td>
                         </tr>
                     </table>
