@@ -87,11 +87,15 @@
 
             <div class="title  mb-lg-5 mb-md-5 w-100 d-flex justify-content-between align-items-center">
                 <h1 class="card-title">Recap Data Harian</h1>
-                <a href="#inputRecapData">
-                    <button class="btn btn-success fs-6">Add Recap</button>
-                </a>
+                <div>
+                    <a href="#inputRecapData">
+                        <button class="btn btn-success" style="font-size: 15px;">Add Recap</button>
+                    </a>
+                    <input type="date" class="btn btn-success" >
+                </div>
             </div>
 
+            <h4 class="text-muted">Tanggal:</h4>
             <div class="scrollAble table-responsive">
                 <table class="table table-hover text-center">
                     <thead class="sticky-top text-bg-dark">
@@ -243,13 +247,14 @@
                         </tr>
                     </thead>
                     <tbody>
-
+                        {% for row in minggu %}
                         <tr>
-                            <th scope="row">1</th>
+                            <th scope="row">{{loop.index}}</th>
                             <td>NaN</td>
-                            <td>NaN</td>
+                            <td>Minggu ke {{loop.index}}</td>
                             <td>NaN</td>
                         </tr>
+                        {% endfor %}
 
                         <tr>
                             <th colspan="3" class="fs-3 border">Jumlah</th>

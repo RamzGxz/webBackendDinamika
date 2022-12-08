@@ -65,12 +65,6 @@ def recap():
     sqlCalculate = calculateRecap()[0]
     return render_template('recap.html', data=result,sqlCalculate=sqlCalculate)
     
-
-
-
-
-
-
 @app.route('/stock/edit/', methods = ['POST'])
 def editStockBrg():
     data = request.form
