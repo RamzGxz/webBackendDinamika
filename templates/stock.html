@@ -12,44 +12,7 @@
     <script src="{{url_for('static', filename = 'bootstrap/js/bootstrap.bundle.min.js')}}"></script>
     <link rel="stylesheet" href="{{url_for('static', filename = 'style.css')}}">
     <script src="https://kit.fontawesome.com/9f19fe83e1.js" crossorigin="anonymous"></script>
-    <script src="{{url_for('static', filename = 'main.js')}}"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            try {
-              // Inisialisasi offcanvas
-              $('.offcanvas').offcanvas({
-                autohide: true
-              });
-        
-              // Tambahkan event handler untuk menutup offcanvas
-              // ketika link di dalamnya diklik
-              $('.offcanvas a').click(function() {
-                $('.offcanvas').offcanvas('hide');
-              });
-              $('.offcanvas .nav-item .login-icon-dropdown').click(function() {
-                $('.offcanvas').offcanvas('hide');
-              });
-
-              $('.offcanvas a[href^="#"]').click(function(event) {
-                // Nonaktifkan default behavior dari event click
-                event.preventDefault();
-              
-                // Dapatkan elemen yang dituju oleh link
-                var target = $(this).attr('href');
-                var $target = $(target);
-              
-                // Scroll ke elemen yang dituju
-                $('html, body').animate({
-                  scrollTop: $target.offset().top
-                }, 10);
-              });
-            } catch (error) {
-              // Tangani error yang terjadi
-              console.error(error);
-            }
-          });
-    </script>
 </head>
 
 <body>
@@ -420,6 +383,7 @@
             <p class="text-center text-muted">&copy; 2022 Dinamika Digital Printing</p>
         </footer>
     </div>
+    <script src="{{url_for('static', filename = 'main.js')}}"></script>
 </body>
 
 </html>

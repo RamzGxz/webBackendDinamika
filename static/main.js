@@ -97,4 +97,46 @@ const editRecap = () =>{
     })
 }
 editRecap()
-    
+
+
+$(document).ready(function() {
+    try {
+      // Inisialisasi offcanvas
+      $('.offcanvas').offcanvas({
+        autohide: true
+      });
+
+      // Tambahkan event handler untuk menutup offcanvas
+      // ketika link di dalamnya diklik
+      $('.offcanvas a').click(function() {
+        $('.offcanvas').offcanvas('hide');
+      });
+      $('.offcanvas .nav-item .login-icon-dropdown').click(function() {
+        $('.offcanvas').offcanvas('hide');
+      });
+      $('.offcanvas .nav-item.dropdown').click(function() {
+        $('.offcanvas').offcanvas('show');
+      });
+      $('.offcanvas-backdrop.fade.show').click(function() {
+        $('.offcanvas').offcanvas('show');
+      });
+      
+
+      $('.offcanvas a[href^="#"]').click(function(event) {
+        // Nonaktifkan default behavior dari event click
+        event.preventDefault();
+      
+        // Dapatkan elemen yang dituju oleh link
+        var target = $(this).attr('href');
+        var $target = $(target);
+      
+        // Scroll ke elemen yang dituju
+        $('html, body').animate({
+          scrollTop: $target.offset().top
+        }, 10);
+      });
+    } catch (error) {
+      // Tangani error yang terjadi
+      console.error(error);
+    }
+  });
