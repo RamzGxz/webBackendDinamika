@@ -117,9 +117,6 @@ $(document).ready(function() {
       $('.offcanvas .nav-item.dropdown').click(function() {
         $('.offcanvas').offcanvas('show');
       });
-      $('.offcanvas-backdrop.fade.show').click(function() {
-        $('.offcanvas').offcanvas('show');
-      });
       
 
       $('.offcanvas a[href^="#"]').click(function(event) {

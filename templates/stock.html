@@ -124,6 +124,7 @@
                             <th scope="col">Jumlah Barang</th>
                             <th scope="col">Tanggal Input</th>
                             <th scope="col">Actions</th>
+                            <th scope="col">Updated</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -144,6 +145,13 @@
                                 {% else %}
                                 <button class="btn btn-success btn-sm edit-stock disabled">Edit </button>
                                 <button class="btn btn-danger btn-sm disabled">Delete</button>
+                                {% endif %}
+                            </td>
+                            <td>
+                                {% if updated %}
+                                    YES
+                                {% else %}
+                                    NO
                                 {% endif %}
                             </td>
                         </tr>

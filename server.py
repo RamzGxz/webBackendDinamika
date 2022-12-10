@@ -32,6 +32,7 @@ def logout():
 def stock():
     token = request.cookies.get('token')
     login = False
+    updated = False
     if token:
         # check token authorization
         conn,cursor = openDb()
@@ -45,10 +46,10 @@ def stock():
     if(request.method == 'POST'):
         details = request.form
         insertData(details,'stock')
+        updated = True
         return(redirect(url_for('stock')))
-    
     result = getStok()
-    return render_template('stock.html', data=result,login=login)
+    return render_template('stock.html', data=result,login=login,updated=updated)
     
 @app.route('/recap', methods = ['GET', 'POST'])
 def recap():
